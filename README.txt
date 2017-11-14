@@ -13,7 +13,7 @@
 	| name           ++ | name        ++ |name          +-+ | address    ++ | name         |
 	| yea_founded    || | year_founded|| |year_founded  | | | year_built || | age          |
 	| national_animal|+-> country     |+->province      | +-> city       |+-> res_address  |
-	|                |  |             |  |              |   |            |  |              |
+	|                |  |             |  |              |   |            |  | person_id    |
 	+----------------+  +-------------+  +--------------+   +------------+  +--------------+
 
 3.  +-----------+       +----------------+    +--------------+   +-----------+
@@ -22,7 +22,7 @@
 	| name      |       |  title         |    | date_placed  |   | name      |
 	| id        +----+  |  isbn          |  +-> book_id      |   | card_num  |
 	|           |    +-->  author_id     |  | | patreon_id   <-+ | email     |
-	+-----------+       |  id            +--+ |              | +-+ id        |
+	+-----------+       |  book_id       +--+ |              | +-+ patreon_id|
 	                    |                |    +--------------+   +-----------+
 	                    +-----------+----+                       |
 	                                |                            |
