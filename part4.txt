@@ -1,0 +1,60 @@
+SELECT title FROM articles WHERE author_id = (Select id from authors where name = 'Kara Melton');
+                                              title                                               
+--------------------------------------------------------------------------------------------------
+ How Tech Business Models Come From Marginalized Communities, But Startups Are Still Mostly White
+ Confronting the Assumption of Whiteness in Virtual Spaces
+
+
+
+SELECT name FROM cities WHERE province_id = (SELECT id FROM provinces WHERE name = 'Ontario');
+  name   
+---------
+ Toronto
+ Ottawa
+
+
+SELECT name FROM authors WHERE id = (SELECT author_id FROM articles WHERE title = 'Coding Bootcamps and Emotional Labor');
+       name        
+-------------------
+ Tilde Ann Thurium
+
+
+SELECT id FROM countries WHERE name = 'Canada';
+SELECT COUNT(id) FROM provinces WHERE country_id = 1;
+count 
+-------
+    14
+
+
+
+SELECT COUNT(id) FROM persons WHERE residence_id = (SELECT id FROM residences WHERE address = '4740 McDermott Street');
+ count 
+-------
+     2
+
+
+SELECT name FROM cities WHERE id = (SELECT city_id FROM residences WHERE address = '4740 McDermott Street');
+  name  
+--------
+ Ottawa
+
+SELECT name FROM provinces WHERE id = (SELECT province_id FROM cities WHERE id = (SELECT city_id FROM residences WHERE address = '4740 McDermott Street'));
+  name   
+---------
+ Ontario
+
+SELECT name FROM countries WHERE id = (SELECT country_id FROM provinces WHERE id = (SELECT province_id FROM cities WHERE id = (SELECT city_id FROM residences WHERE address = '4740 McDermott Street')));
+  name  
+--------
+ Canada
+
+SELECT name FROM countries WHERE id = (SELECT country_id FROM provinces WHERE id = (SELECT province_id FROM cities WHERE id = (SELECT city_id FROM residences WHERE id = (SELECT residence_id FROM persons WHERE name = 'Destini Davis'))));
+  name  
+--------
+ Canada
+
+SELECT COUNT(id) FROM articles WHERE author_id = (SELECT id FROM authors WHERE name = 'Aditya Mukerjee');
+ count 
+-------
+     1
+
